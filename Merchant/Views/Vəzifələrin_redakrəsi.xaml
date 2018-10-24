@@ -1,0 +1,65 @@
+﻿<Window x:Class="Merchant.Views.Vəzifələrin_redakrəsi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Merchant.Views"
+        mc:Ignorable="d"
+         Background="#363545"
+        Title="Vəzifələrin_redakrəsi"  Height="240" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Foreground="Wheat" Content="Id:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Foreground="Wheat" Content="Vəzifənin adı:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Foreground="Wheat" Content="İşçi sayı:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Foreground="Wheat" Text="{Binding Id}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,19,0,15" Width="63" Height="26" Name="TB_Position_Id"/>
+        <TextBox Foreground="Wheat" Text="{Binding PositionName}" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,14,0,11" Width="209" Height="26" Name="TB_Position_PosName" RenderTransformOrigin="0.499,0.539" Padding="1,1,1,3" ScrollViewer.CanContentScroll="True"/>
+        <TextBox Foreground="Wheat" Text="{Binding CountEmployees}" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="9,14,0,0" Width="109" Height="26" Name="TB_Position_CountEmp"/>
+        <Button Command="{Binding AddExpense}"  
+                 Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                Width="110">
+           
+            <Grid Height="29">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/Images/+.png" Stretch="Fill" Height="15" Width="15" Margin="0,4,7,10" />
+                <TextBlock Grid.Column="1" Margin="0,2,3,0" Height="21" VerticalAlignment="Top">Saxla</TextBlock>
+            </Grid>
+        </Button>
+        <Button Command="{Binding ExitCommand}"
+                 Grid.Row="3" Grid.Column="1" 
+                Width="110" HorizontalAlignment="Right">
+           
+            <Grid Height="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/Images/delete.png" Stretch="Fill" Height="15" Width="15"/>
+                <TextBlock Grid.Column="1" Margin="1">Ləğv et</TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

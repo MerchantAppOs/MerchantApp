@@ -1,0 +1,318 @@
+﻿<UserControl x:Class="Merchant.Views.Malin_Satilmasi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:Merchant.Views"
+        mc:Ignorable="d"
+         Background="#363545" >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="383*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="129*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <DataGrid ItemsSource="{Binding ListOfProduct}" SelectedItem="{Binding SelectItem}" Grid.Row="0" Grid.Column="1" Name="DG_Products" AutoGenerateColumns="False" IsReadOnly="True" >
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Cyan"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="10*"/>
+                    <DataGridTextColumn Header="Kateqoriya" Binding="{Binding Category}"  Width="20*" />
+                    <DataGridTextColumn Header="Malın adı" Binding="{Binding ProductName}"  Width="20*" />
+                    <DataGridTextColumn Header="Kodu" Binding="{Binding ProductCode}"  Width="20*" />
+                    <DataGridTextColumn Header="Marka" Binding="{Binding Mark}"  Width="20*" />
+                    <DataGridTextColumn Header="Miqdarı" Binding="{Binding Quantity}"  Width="20*" />
+                    <DataGridTextColumn Header="Ölçü vahidi" Binding="{Binding Unit}"  Width="20*" />
+                    <DataGridTextColumn Header="Alış qiyməti" Binding="{Binding Price}"  Width="20*" />
+                    <DataGridTextColumn Header="Məbləğ" Binding="{Binding Amount}"   Width="20*" />
+                    <DataGridTextColumn Header="Satış qiyməti" Binding="{Binding SellingPrice}"  Width="20*" />
+                    <DataGridTextColumn Header="Qazanc" Binding="{Binding Save}"   Width="20*" />
+                    <DataGridTextColumn Header="Tarix" Binding="{Binding ImportProduct,StringFormat=dd.MM.yyyy}"  Width="20*" />
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Label Background="Gray" VerticalAlignment="Center" Grid.Column="8"  Content="{Binding AmountLabel,UpdateSourceTrigger=PropertyChanged}"></Label>
+                <Label Background="Gray" VerticalAlignment="Center" Grid.Column="10" Content="{Binding  SaveLabel,UpdateSourceTrigger=PropertyChanged}"></Label>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="4" Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Height="15" Grid.Column="0"  BorderBrush="Black" 
+        BorderThickness="1,0,1,0" Background="{x:Null}" />
+                <Border Height="15" Grid.Column="2"  BorderBrush="Black" 
+        BorderThickness="1,0,0,0" Background="{x:Null}" />
+                <Label  Content="{Binding Debt}" Foreground="Wheat" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Foreground="Wheat" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">AZN</Label>
+                <Label Foreground="Wheat" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center">Borcludur</Label>
+            </Grid>
+            <Label Foreground="Wheat" Content="Tarix" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Nomre" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Şəxs" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Qeyd" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Borc" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Mal adi" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Miqdari" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Alis qiymeti" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Satis qiymeti" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Qeyd" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Foreground="Wheat" Content="Anbarda Qaliq :" Grid.Row="10" VerticalAlignment="Top" HorizontalAlignment="Right"></Label>
+            <DatePicker Foreground="Wheat" Height="30" Width="150" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"></DatePicker>
+            <TextBox    Foreground="Wheat" Height="30" Width="150" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"></TextBox>
+            <Grid  Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox SelectedItem="{Binding SelectItem}" ItemsSource="{Binding PersonList}"  IsEditable="True" Grid.Column="0" Width="150" Height="30" Text="Negd Alis" HorizontalAlignment="Left">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding SelectPerson}"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+                <Button Command="{Binding PersonsCommand}" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="25" HorizontalAlignment="Right" Margin="0,2,5,1" >
+                    <Grid Margin="-10,0,0,0">
+                        <Image Source="/Images/search.png" Stretch="Fill" />
+                    </Grid>
+                </Button>
+                <Button Command="{Binding AddPersonCommand}" Grid.Column="3" Grid.ColumnSpan="4" Height="30" Width="25">
+                    <Grid Margin="-10,0,0,0">
+                        <Image  Source="/Images/plus-icon.png" Stretch="Fill"  Grid.RowSpan="2"/>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="7" Grid.ColumnSpan="8" Height="30" Width="25" >
+                    <Grid Margin="-10,0,0,0">
+                        <Image  Source="/Images/Info.png" Stretch="Fill" />
+                    </Grid>
+                </Button>
+            </Grid>
+            <ListBox Foreground="Wheat" Grid.Row="3" Grid.Column="1" Height="30" HorizontalAlignment="Left" Width="150"></ListBox>
+            <Grid Grid.Row="5" Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Foreground="Wheat" Text="{Binding ProductName}" IsEditable="True" Grid.Column="0" Grid.Row="5" Width="150" Height="30" HorizontalAlignment="Left"  ></ComboBox>
+                <Button Command="{Binding ChooseProduct}"
+                        Grid.Column="1" Grid.ColumnSpan="2" 
+                        Height="30" Width="25" HorizontalAlignment="Right" Margin="0,2,5,1" >
+                    <Grid Margin="-10,0,0,0">
+                        <Image Source="/Images/search.png" Stretch="Fill" />
+                    </Grid>
+                </Button>
+                <Button Command="{Binding AddNewProduct}"  Grid.Column="3" Grid.ColumnSpan="4" 
+                        Height="30" Width="25">
+                    <Grid Margin="-10,0,0,0">
+                        <Image  Source="/Images/plus-icon.png" Stretch="Fill"  Grid.RowSpan="2"/>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="7" Grid.ColumnSpan="8"
+                        Height="30" Width="25" >
+                    <Grid Margin="-10,0,0,0">
+                        <Image  Source="/Images/Info.png" Stretch="Fill" />
+                    </Grid>
+                </Button>
+
+            </Grid>
+            <ComboBox Foreground="Wheat" Text="{Binding LimitedAmount}" IsEditable="True" Grid.Row="6" Grid.Column="1" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" ></ComboBox>
+            <ComboBox Foreground="Wheat" Text="{Binding Price}" IsEditable="True" Grid.Row="7" Grid.Column="1" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" ></ComboBox>
+            <Label    Foreground="Wheat" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" >AZN</Label>
+            <ComboBox Foreground="Wheat"  Text="{Binding SellingPrice}" IsEditable="True" Grid.Row="8" Grid.Column="1" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"  ></ComboBox>
+            <Label    Foreground="Wheat"   Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" >AZN</Label>
+            <TextBox  Foreground="Wheat" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Grid.Row="9" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+
+            <Grid Grid.Row="10" Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Height="30" Grid.Column="0" VerticalAlignment="Top" BorderBrush="Gray" 
+                        BorderThickness="1,0,1,0" Background="{x:Null}" />
+
+                <Label   Foreground="Wheat" VerticalAlignment="Top" Content="{Binding Residual,UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" HorizontalAlignment="Center" ></Label>
+                <Button Command="{Binding AddButtonCommand}" Margin="10"
+                        IsEnabled="{Binding EnabledButton,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"  
+                        Grid.Column="2" Grid.Row="1"  Height="30" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition  Width="22"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" ><Run Text="Elave Et"/></TextBlock>
+                        <Image Grid.Column="1" Width="21" Height="20" Source="/Images/strelka.png" HorizontalAlignment="Right" Stretch="Uniform"/>
+                    </Grid>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="71*"/>
+                <ColumnDefinition Width="76*"/>
+                <ColumnDefinition Width="77*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Foreground="Wheat" Grid.Column="1" Content="Mebleg :" Width="50"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,3" ></Label>
+            <ComboBox Foreground="Wheat" Text="{Binding Amount}" Grid.Column="2" IsEditable="True" Width="60" Height="30"  HorizontalAlignment="Left" Margin="0,1"   ></ComboBox>
+            <Label Foreground="Wheat" Grid.Column="3" HorizontalAlignment="Right" Width="45" VerticalAlignment="Center" Margin="0,3"  >Guzest :</Label>
+            <ComboBox Foreground="Wheat" Text="{Binding Compromise}" Grid.Column="4" IsEditable="True" Width="60" Height="30"  HorizontalAlignment="Left" Margin="0,1" ></ComboBox>
+            <Label Foreground="Wheat" Grid.Column="5" Content="Paid amount :" Width="80"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,3" ></Label>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Foreground="Wheat" Text="{Binding Paidamount}" IsEditable="True" Grid.Column="0" HorizontalAlignment="Left" Width="120" Height="30"  ></ComboBox>
+            <Button Command="{Binding ConfirmCommand}" HorizontalAlignment="Left"  Grid.Column="1" Width="97" Height="32"   >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="FontStyle" Value="Italic"/>
+                                <Setter Property="FontSize" Value="12"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/update.png" Stretch="Fill" Margin="1,3,5,3"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" ><Run Text="Tesdiq Et"/></TextBlock>
+                </Grid>
+            </Button>
+            <Button Command="{Binding BackCommand}" HorizontalAlignment="Right" Grid.Column="2"  Width="97" Height="32"    >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="FontStyle" Value="Italic"/>
+                                <Setter Property="FontSize" Value="12"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/Exit.png" Stretch="Fill" Margin="-1,3,7,3" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="27" Grid.RowSpan="2"><Run Text="Çıxış"/></TextBlock>
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

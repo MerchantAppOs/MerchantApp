@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="Merchant.Views.İşçilərin_siyahısı"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Merchant.Views"
+        mc:Ignorable="d"
+             
+        Background="#363545"  >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="50"/>
+            <RowDefinition Height="738*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Background="#cccc00">
+            <Label Content="Menyu" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Foreground="#FF682C2C" />
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="32*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="/Images/Port.png" Stretch="Fill" Margin="0,51,0,63"/>
+                <Image Grid.Row="1" Source="/Images/Mi.png" Stretch="Fill" Height="242" Margin="0,40,0,0"/>
+            </Grid>
+            <DataGrid  SelectedItem="{Binding SelectItem}" ItemsSource="{Binding DG_Employees,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Name="DG_Employee" AutoGenerateColumns="False" IsReadOnly="True" Margin="7,0,0,0">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Cyan"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="20"/>
+                    <DataGridTextColumn Header="Soyad" Binding="{Binding Surname}"  Width="200" />
+                    <DataGridTextColumn Header="Ad" Binding="{Binding Name}"  Width="200" />
+                    <DataGridTextColumn Header="Atasının adı" Binding="{Binding FatherName}"  Width="200" />
+                    <DataGridTextColumn Header="Vəzifəsi" Binding="{Binding Position}"  Width="150" />
+                    <DataGridTextColumn Header="Doğum tarixi" Binding="{Binding Birthday,StringFormat=dd.MM.yyyy}"  Width="90" />
+                    <DataGridTextColumn Header="İşə başlama tarixi" Binding="{Binding StartDay,StringFormat=dd.MM.yyyy}"  Width="100" />
+                    <DataGridTextColumn Header="Əmək haqqı" Binding="{Binding Salary}"  Width="105" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid
+             Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="286*"/>
+                <ColumnDefinition Width="185*"/>
+                <ColumnDefinition Width="287*"/>
+                <ColumnDefinition Width="286*"/>
+                <ColumnDefinition Width="287"/>
+            </Grid.ColumnDefinitions>
+            <Button IsEnabled="{Binding Visiable}"  Command="{Binding AddEmployee, UpdateSourceTrigger=PropertyChanged}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/+.png" Width="16" Height="16" />
+                    <TextBlock Grid.Column="1" Margin="0,1,0,2">Əlavə et</TextBlock>
+                </Grid>
+            </Button>
+            <Button Grid.Column="1" Command="{Binding UpdateData}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/update.png" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Margin="0,3,0,2">Redaktə et</TextBlock>
+                </Grid>
+            </Button>
+            <Button Grid.Column="2" Command="{Binding ClearTable}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/Clear.png" Width="18" Height="18" Margin="-5,2,2,2"/>
+                    <TextBlock Grid.Column="1" Margin="0,3,0,2">Cədvəli təmizlə</TextBlock>
+                </Grid>
+            </Button>
+            <Button Grid.Column="3" Command="{Binding DeleteRow}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/delete.png" Width="16" Height="13" Margin="-1,4,0,2" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Column="1" Margin="3,2,3,0" FontSize="13">Sil</TextBlock>
+                </Grid>
+            </Button>
+            <Button Grid.Column="4" Width="150" Margin="0,30,32,22" Command="{Binding ExitCommand}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Images/Exit.png" Width="18" Height="18" Margin="-25,0,0,0"/>
+                    <TextBlock Grid.Column="1" Margin="0,0,0,2" FontSize="15">Çıxış</TextBlock>
+                </Grid>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

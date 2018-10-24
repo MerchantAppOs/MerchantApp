@@ -1,0 +1,376 @@
+﻿<UserControl x:Class="Merchant.Views.Tacir_Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Merchant.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+            
+         Background="#363545"
+        
+         Height="auto" Width="auto"  Foreground="#FF060606"  >
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/8d82c12b-ec00-4401-81a1-b71c80e22033.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.2*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="750*"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Top" Background="#cccc00" Foreground="Black">
+            <MenuItem Header="Əməliyyatlar" FontSize="18">
+                <MenuItem  Foreground="Wheat" Background="#353545" Command="{Binding Import}" Header="Malın alınması"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Command="{Binding Export}" Header="Malın satılması"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Command="{Binding ListOfDissatisfiedProduct, UpdateSourceTrigger=PropertyChanged}" Header="Təmənnasız alış"/>
+                <Separator Background="#353545" Foreground="Wheat"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Xərclərin daxil edilməsi"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Pul vəsaitinin kassadan çıxarılması"/>
+            </MenuItem>
+            <MenuItem Header="Jurnal" FontSize="18">
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Əməliyyatlar"/>
+            </MenuItem>
+            <MenuItem Header="Hesabatlar" FontSize="18">
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Malların hesabatları">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Malların ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Malların tam hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Malların satış üzrə hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən malın tam hesabatı"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Malların seçilən əməliyyat üzrə hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Malların obyektlərarası hesabatı"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Son istifadə tarixi üzrə hesabat"/>
+                </MenuItem>
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Şəxslərin hesabatları">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Şəxslərin məlumatı və ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Şəxslərin alış üzrə ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Şəxslərin satış üzrə ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən şəxsə göstərilən xidmətlərin hesabatı"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən şəxsin əməliyyatlarının siyahısı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən şəxsin əməliyyatlar üzrə mallarının siyahısı"/>
+                </MenuItem>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Xərclərin hesabatları">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Xərclərin ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən xərcin günlər üzrə hesabatı"/>
+                </MenuItem>
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Xidmətlərin hesabatı">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Xidmətlərin ümumi hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Seçilən xidmətin günlər üzrə hesabatı"/>
+                </MenuItem>
+                <Separator Foreground="Wheat" Background="#353545"/>
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Kassa hesabatı">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kassanın ümumi hesabatı"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kassanın günlər üzrə tam hesabatı"/>
+                    <MenuItem Header="Kassanın mədaxil və məxaric hesabatı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kassanın istifadəçilər üzrə üzrə hesabatı"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Əlavələr" FontSize="18">
+               
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Obyekti dəyişdir"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Qiymət siyahısı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kreditlərin siyahısı"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Anbar siyahısı"/>
+                <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Xatırlatmalar"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Gündəlik qeydlər"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Sifarişlər"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Bonuslar"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kredit kalkulyatoru"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Kalkulyator"/>
+                <Separator Foreground="Wheat" Background="#353545"/>
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Standart mövzu"/>
+                
+            </MenuItem>
+            <MenuItem Header="Sorğu kitabçası" FontSize="18">
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Kateqoriya və mal adları">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Category.png" Width="20" Height="20"/>
+                    </MenuItem.Icon>
+                    <MenuItem  Foreground="Wheat" Background="#353545" Command="{Binding ListOfCategory, UpdateSourceTrigger=PropertyChanged}" Header="Kateqoriya adları">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/Catalog.png" Width="20" Height="20"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem  Foreground="Wheat" Background="#353545" Command="{Binding ListOfProducts, UpdateSourceTrigger=PropertyChanged}" Header="Mal adları">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/ProductName.png" Width="20" Height="20"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Foreground="Wheat" Background="#353545" Command="{Binding ListOfPerson}" Header="Şəxslərin siyahısı"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Xidmət adları"/>
+                <MenuItem Foreground="Wheat" Background="#353545" Command="{Binding ListOfAmount, UpdateSourceTrigger=PropertyChanged}" Header="Xərc adları">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Money.png" Width="20" Height="24"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Əlavə gəlir mənbələri"/>
+                <Separator Foreground="Wheat" Background="#353545" />
+                <MenuItem   Foreground="Wheat" Background="#353545" Header="İşçilər və vəzifələr">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Employee.png" Width="20" Height="20"/>
+                    </MenuItem.Icon>
+                    <MenuItem Foreground="Wheat" Background="#353545" Command="{Binding ListOfEmployees, UpdateSourceTrigger=PropertyChanged}" Header="İşçilərin siyahısı">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/Employee.png" Width="20" Height="20"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Foreground="Wheat" Background="#353545" Command="{Binding ListPositons, UpdateSourceTrigger=PropertyChanged}" Header="Vəzifələr">
+                        <MenuItem.Icon>
+                            <Image  Source="/Images/position.png" Width="20" Height="20"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="İdarəetmə" FontSize="18">
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Əsas sazlamalar"/>
+                <MenuItem Foreground="Wheat" Background="#353545" Header="Məlumat bazası">
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Məlumat bazasını aktivləşdir"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Məlumat bazasını bərpa et"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Arxivləşmə tarixçəsi"/>
+                    <Separator Foreground="Wheat" Background="#353545"/>
+                    <MenuItem Foreground="Wheat" Background="#353545" Header="Məlumat bazasını sil"/>
+                </MenuItem>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="İstifadəçilər"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Şifrənin dəyişdirilməsi"/>
+                <Separator Foreground="Wheat" Background="#353545" />
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Təklif/şikayət göndər"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Aktivləşdirmə"/>
+                <MenuItem  Foreground="Wheat" Background="#353545" Header="Haqqında"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel MinHeight="60" Grid.Row="1" Orientation="Horizontal">
+            <Button  Command="{Binding Import}"  Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65" >
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Malin_alinmasi.png" Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue">Malın alınması</TextBlock>
+                </Grid>
+            </Button>
+            <Button Command="{Binding Export}"  Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65">
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Malin_satilmasi.png"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue">Malın satılması</TextBlock>
+                </Grid>
+            </Button>
+
+            <Button  Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65"
+                    Command="{Binding Calculator}">
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Oxygen-Icons.org-Oxygen-Apps-accessories-calculator.ico"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue" HorizontalAlignment="Center">Kalkulyator</TextBlock>
+                </Grid>
+            </Button>
+            <Button  Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65">
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Price-icon.png"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue">Qiymət siyahısı</TextBlock>
+                </Grid>
+            </Button>
+            <Button  Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65"
+                Command="{Binding ListOfPerson}">
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Button.Style>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Users-icon.png"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue">Şəxslərin siyahısı</TextBlock>
+                </Grid>
+            </Button>
+            <Button Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0"  Height="65"
+                Command="{Binding NameOfProducts}" >
+                <!--<Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="FontWeight" Value="ExtraBold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>-->
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Product-documentation-icon.png"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue" HorizontalAlignment="Center">Mal adları</TextBlock>
+                </Grid>
+
+            </Button>
+            <Button Height="65" Command="{Binding ExitCommand}" Width="140" BorderBrush="#FFE4E4E0" Background="#FFE4E4E0" >
+
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Images/Users-Exit-icon.png"  Width="50" Height="40"></Image>
+                    <TextBlock Grid.Row="1" Foreground="Blue" HorizontalAlignment="Center">Çıxış</TextBlock>
+                </Grid>
+
+            </Button>
+        </StackPanel>
+
+
+
+
+        <Grid Grid.Row="3" >
+
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.0*"/>
+                <ColumnDefinition Width="1.7*"/>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding RefreshCommand}" Grid.Column="0" Background="#FFE4E4E0"  Width="50" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Image   Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Images/update-icon.png"  Margin="-10,0,0,0" Width="30" Height="30" />
+            </Button>
+
+            <Border Margin="10,0,0,0" HorizontalAlignment="Left" BorderThickness="2,2,2,2" Grid.Column="1"  BorderBrush="Gray" Height="auto" Width="auto"  Background="#FFE4E4E0">
+
+                <TextBlock Grid.Column="3"  >
+            <Grid Width="249" Height="78"  >
+                <TextBlock Grid.Row="0" Text="Xatirlatmalar:" FontSize="22" FontWeight="Black" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    
+                </TextBlock >
+                <Label  Content="{Binding Notification}" Foreground="DarkBlue" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15">
+                    
+                </Label>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+                </TextBlock >
+            </Border>
+            <Border Margin="-100,0,0,0" HorizontalAlignment="Left" BorderThickness="2,2,2,2" Grid.Column="3"  BorderBrush="Gray" Height="auto" Width="{Binding Refresh}" >
+                <TextBlock  Width="auto" Background="#FFE4E4E0" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+    
+                 <TextBlock Text="KASSA:"  FontSize="17" Grid.Row="0" FontWeight="Black" HorizontalAlignment="Left" VerticalAlignment="Center" Width="72" Grid.ColumnSpan="2" />    
+                 <Label Grid.Row="0" Content="{Binding TotalAmount}"  FontSize="30" Grid.Column="1" Grid.ColumnSpan="3" Height="60"  FontWeight="Black" VerticalAlignment="Top"  />
+                
+                 <TextBlock Grid.Row="0" Text="AZN" Grid.Column="5" FontSize="20" HorizontalAlignment="Right" FontWeight="Black" VerticalAlignment="Center" Height="27" Width="47"/>
+                
+                
+            </Grid>
+                </TextBlock>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

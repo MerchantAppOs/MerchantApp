@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:Merchant.ViewModels"
+                    xmlns:v="clr-namespace:Merchant.Views"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:local="clr-namespace:Merchant">
+    <DataTemplate DataType="{x:Type vm:AppViewModel}">
+        <v:AppView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:İşçilərin_redaktəsiViewModel}">
+        <v:İşçilərin_redaktəsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:İşçilərin_siyahısiViewModel}">
+        <v:İşçilərin_siyahısı/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:KateqoriyalarViewModel}">
+        <v:Kateqoriyalar/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Malın_seçilməsiViewModel}">
+        <v:Malın_seçilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ProductsNameViewModel}">
+        <v:ProductsName/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:RedaktəViewModel}">
+        <v:Redaktə/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Tacir_InfoViewModel}">
+        <v:Tacir_Info/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Təmənnasız_alışViewModel}">
+        <v:Təmənnasız_alış/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Vəzifələrin_redakrəsiViewModel}">
+        <v:Vəzifələrin_redakrəsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:VəzifələrViewModel}">
+        <v:Vəzifələr/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Xərc_adının_elavə_edilməsiViewModel}">
+        <v:Xərc_adının_elavə_edilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:XərcAdlarıViewModel}">
+        <v:XərcAdları/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:XərcRedaktəViewModel}">
+        <v:XərcRedaktə/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Y_M_redaktəsiViewModel}">
+        <v:Y_M_redaktəsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Yeni_işçinin_əlavə_edilməsiViewModel}">
+        <v:Yeni_işçinin_əlavə_edilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Yeni_kateqoriyanın_əlavə_edilməsiViewModel}">
+        <v:Yeni_kateqoriyanın_əlavə_edilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Yeni_mal_adının_əlavə_edilməsiViewModel}">
+        <v:Yeni_mal_adının_əlavə_edilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Yeni_vəzifənin_əlavə_edilməsiViewModel}">
+        <v:Yeni_vəzifənin_əlavə_edilməsi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Malin_AlinmasiViewModel}">
+        <v:Malin_Alinmasi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Malin_SatilmasiViewModel}">
+        <v:Malin_Satilmasi/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AddNewPersonViewModel}">
+        <v:AddNewPerson/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ListPersonsViewModel}">
+        <v:ListPersons/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:UserRegisterViewModel}">
+        <v:UserRegister/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:UserLoginViewModel}">
+        <v:UserLogin/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:EditWaherHouseViewModel}">
+        <v:EditWaherhouse/>
+    </DataTemplate>
+
+   
+</ResourceDictionary>

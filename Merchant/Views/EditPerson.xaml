@@ -1,0 +1,108 @@
+﻿<Window x:Class="Merchant.Views.EditPerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Merchant.Views"
+        mc:Ignorable="d"
+        Background="#363545"
+        Title="EditPerson" Height="450" Width="380" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="370"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="80" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Foreground="Wheat" HorizontalAlignment="Right">Sexs adi :</Label>
+            <Label Foreground="Wheat" Grid.Row="1" HorizontalAlignment="Right">Kod :</Label>
+            <Label Foreground="Wheat" Grid.Row="3" HorizontalAlignment="Right">Elaqe nomresi :</Label>
+            <Label Foreground="Wheat" Grid.Row="4" HorizontalAlignment="Right">Unvan :</Label>
+            <Label Foreground="Wheat" Grid.Row="5" HorizontalAlignment="Right">Borc Limiti :</Label>
+            <Label Foreground="Wheat" Grid.Row="6" HorizontalAlignment="Right">Endirim :</Label>
+            <Label Foreground="Wheat" Grid.Row="9" HorizontalAlignment="Right">Qeyd :</Label>
+            <TextBox Foreground="Wheat" Text="{Binding FullName}" Grid.Column="1" Width="180" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+
+            <TextBox Foreground="Wheat" Text="{Binding Code}" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Width="100" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <Button Width="55" Margin="20,0,0,0" Height="22" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" >
+                <Grid Height="18" Width="25">
+                    <Image  Source="/Images/file-default-icon.png"/>
+                </Grid>
+            </Button>
+            <RadioButton Foreground="Wheat" IsChecked="{Binding IndividualPerson}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70">Fiziki sexs</RadioButton>
+            <RadioButton Foreground="Wheat" IsChecked="{Binding JuridicalPerson}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="85">Huquqi sexs</RadioButton>
+            <TextBox Foreground="Wheat" Text="{Binding PhoneNumber}" Grid.Row="3" Grid.Column="1" Width="180" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <TextBox Foreground="Wheat" Text="{Binding Address}" Grid.Row="4" Grid.Column="1" Width="180" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <ComboBox Foreground="Wheat" Text="{Binding LoanLimited}" IsEditable="True" Grid.Row="5" Grid.Column="1" Width="100" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left" ></ComboBox>
+            <Label Foreground="Wheat" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">AZN</Label>
+            <ComboBox Foreground="Wheat" Text="{Binding Discount}" IsEditable="True" Grid.Row="6" Grid.Column="1" Width="100" Height="22" VerticalAlignment="Center" HorizontalAlignment="Left" ></ComboBox>
+            <Label Foreground="Wheat" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center">%</Label>
+            <CheckBox Foreground="Wheat" IsChecked="{Binding Sale}" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left">Mal Satir</CheckBox>
+            <CheckBox Foreground="Wheat" IsChecked="{Binding Buy}" VerticalAlignment="Center" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left">Mal Alir</CheckBox>
+            <RichTextBox Grid.Row="9" Grid.Column="1" Width="180" HorizontalAlignment="Left">
+                <FlowDocument PageHeight="180">
+                    <Paragraph>
+                        <Run Text="{Binding Note, Mode=TwoWay}"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <CheckBox Foreground="Wheat" IsChecked="{Binding Activity}" VerticalAlignment="Center" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left">Aktivlik</CheckBox>
+        </Grid>
+
+
+
+        <Button Width="110"  Height="30"  Grid.Row="1" 
+                Grid.Column="1" 
+                Command="{Binding AddUpdate,UpdateSourceTrigger=PropertyChanged}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/Images/+.png" Width="20" Height="20" />
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center">Əlavə et</TextBlock>
+            </Grid>
+        </Button>
+        <Button Height="30" Command="{Binding ExitCommand}" 
+                Width="110" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/Images/delete.png" Width="20" Height="20" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" >Ləğv et</TextBlock>
+            </Grid>
+        </Button>
+
+    </Grid>
+</Window>
